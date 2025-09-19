@@ -84,12 +84,35 @@ public class App {
         // DO NOT TOUCH THE THREE LINES BELOW
         int secretNumber = getSecretNumber();
         System.out.println("The secret number is " + secretNumber + ". Shh! Don't tell anyone");
-        Scanner reader = new Scanner(System.in);
-        // WRITE YOUR CODE IN THE SPACE BELOW
+        Scanner scanner = new Scanner(System.in);
+        int guess = 0;
+        while (true) {
+            System.out.println("Guess a number");
+            int ans = Integer.valueOf(scanner.nextLine());
+            if (ans == secretNumber) {
+                guess +=1;
+                break;
+            }else if (ans > 20 || ans < 1) {
+                System.out.println("Pick a number from 1 to 20!");
+            }else{
+                guess +=1;
+                if (ans > secretNumber) {
+                    System.out.println("Lower");
+                }else if (ans < secretNumber) {
+                    System.out.println("Higher");
+                }
+            }
+        if (guess == 4) {
+            if (ans % 2 == 0) {
+            System.out.println("The number is even.");
+            }else if (ans % 2 != 0) {
+            System.out.println("The number is odd.");
+            }
 
-
-
+        }
     }
+    System.out.println("It took you " + guess + " guesses.");
+}
 
 
 
